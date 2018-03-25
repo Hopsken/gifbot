@@ -14,7 +14,8 @@ app.config['DOWNLOAD_FOLDER'] = '/tmp/downloads/'
 
 if os.path.exists(app.config['UPLOAD_FOLDER']) == False:
     os.mkdir(app.config['UPLOAD_FOLDER'])
-    os.mkdir(app.config['UPLOAD_FOLDER'])
+if os.path.exists(app.config['DOWNLOAD_FOLDER']) == False:
+    os.mkdir(app.config['DOWNLOAD_FOLDER'])
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
