@@ -16,7 +16,7 @@
 $(function () {
     $("#submit").on("click", function(e){
         $(".bouncing-loader").css("display", "flex");
-        $(this).attr("disabled", true);
+        $(this).attr("disabled", true).html("Loading...");
 
         var form = new FormData();
         var file = document.getElementById("gif").files;
