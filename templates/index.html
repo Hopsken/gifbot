@@ -10,14 +10,13 @@
     <script>
         function submit(evt) {
             var form = new FormData();
-            var file = document.getElementById("gif");
-            form.append('gif', file.files[0], file.files[0].name);
-            console.log(form);
+            var files = document.getElementById("gif").files;
+            form.append('gif', files[0], files[0].name);
             var req = new XMLHttpRequest();
-            req.open("post", "upload", true);
+            req.open("post", "upload/", true);
             req.send(form);
             req.onreadystatechange = function () {
-                if (req.readyStat == 4 && req.status == 200) {
+                if (req.readyState == 4 && req.status == 200) {
                     if (!(req.responseText.startsWith("Error"))) {
                         document.getElementById("output").setAttribute("src", "downloads/" + req.responseText)
                     }
