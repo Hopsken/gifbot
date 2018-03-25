@@ -1,27 +1,41 @@
 <!doctype html>
-<title>Hello from Flask</title>
+
+<head>
+    <title>Hello from Flask</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 
 <body>
-    <div id="upload">
-        <input type="file" name="gif" id="gif">
-        <input type="button" value="提交" onclick="submit()">
+    <div class="container">
+        <header>
+            <h2>Reverse Gif</h2>
+        </header>
+        <div class="content">
+            <div class="box">
+                <input type="file" name="gif" id="gif">
+                <label for="gif">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                        viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" width="512px" height="512px">
+
+                        <path d="M50.001,7.5l-26,24.398h16.5V57.5h19V31.898h16.5L50.001,7.5z M96.698,65.211L80.78,54.5h-9.816    l17.002,13.043H70.243c-0.508,0-0.969,0.258-1.197,0.664L64.96,79.383H35.038l-4.086-11.176c-0.227-0.406-0.689-0.664-1.197-0.664    H12.032L29.036,54.5h-9.818L3.302,65.211c-2.369,1.415-3.785,4.676-3.15,7.246l2.807,15.369c0.636,2.57,3.452,4.674,6.257,4.674    h81.568c2.805,0,5.621-2.104,6.258-4.674l2.805-15.369C100.485,69.887,99.067,66.626,96.698,65.211z"
+                            fill="#FFFFFF" />
+                    </svg>
+                    Select Gif</label>
+                <input type="button" value="提交" onclick="submit()">
+            <div class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <img id="output">
+            </div>
+        </div>
     </div>
-    <img id="output">
-    <script>
-        function submit(evt) {
-            var form = new FormData();
-            var files = document.getElementById("gif").files;
-            form.append('gif', files[0], files[0].name);
-            var req = new XMLHttpRequest();
-            req.open("post", "upload/", true);
-            req.send(form);
-            req.onreadystatechange = function () {
-                if (req.readyState == 4 && req.status == 200) {
-                    if (!(req.responseText.startsWith("Error"))) {
-                        document.getElementById("output").setAttribute("src", "downloads/" + req.responseText)
-                    }
-                }
-            }
-        }
-    </script>
+
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

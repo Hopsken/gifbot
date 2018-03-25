@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    background-color: #F1E5E6;
+}
+
+header {
+    text-align: center;
+}
+
+header h2 {
+    display: inline-block;
+    padding: 3rem 2rem;
+    color: #4b0f31;
+}
+
+.content {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0 3em 0;
+}
+
+.box {
+    background-color: #dfc8ca;
+    padding: 6.25rem 1.25rem;
+}
+
+.box img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 400px;
+}
+
+#gif {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#gif+label {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    background-color: #d3394c;
+    cursor: pointer;
+}
+
+#gif:focus+label,
+#gif+label:hover {
+    background-color: #D41D24;
+}
+
+#gif:focus+label {
+    outline: 2px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+#gif+label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: #fff;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
