@@ -52,19 +52,33 @@
 
     <footer>
         <a class="github-button" href="https://github.com/hopsken/gifbot" data-show-count="true" aria-label="Star hopsken/gitbot on GitHub">Star</a>
-        <div><span>Made with
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 57.947 57.947" style="enable-background:new 0 0 57.947 57.947;" xml:space="preserve">
-                <path style="fill:#E64C3C;" d="M28.947,56.486c15.685-11.277,23.532-21.592,27.222-29.46c4.311-9.193,0.561-20.589-8.845-24.413
+        <div>
+            <span>Made with
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 57.947 57.947" style="enable-background:new 0 0 57.947 57.947;" xml:space="preserve">
+                    <path style="fill:#E64C3C;" d="M28.947,56.486c15.685-11.277,23.532-21.592,27.222-29.46c4.311-9.193,0.561-20.589-8.845-24.413
                        C36.268-1.88,28.947,8.486,28.947,8.486S21.678-1.907,10.623,2.588C1.217,6.412-2.533,17.808,1.778,27.001
                        C5.468,34.868,13.262,45.21,28.947,56.486z" />
-            </svg> by 
-            <a href="https://twitter.com/hopsken_">Hopsken</a>.
-        </span>
-    </div>
+                </svg> by
+                <a href="https://twitter.com/hopsken_">Hopsken</a>.
+            </span>
+        </div>
     </footer>
 
     <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72710946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-72710946-1');
+    </script>
+
 </body>
