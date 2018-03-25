@@ -1,7 +1,27 @@
 <!doctype html>
 <title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello World!</h1>
-{% endif %}
+
+<body>
+    <div id="upload">
+        <input type="file" name="gif" id="gif">
+        <input type="button" value="提交" onclick="submit()">
+    </div>
+    <img id="output">
+    <script>
+        function submit(evt) {
+            var form = new FormData();
+            form.append('gif', document.getElementById('gif').files[0]);
+            console.log(form);
+            var req = new XMLHttpRequest();
+            req.open("post", "upload", false);
+            req.send(form);
+            req.onreadystatechange = function () {
+                if (req.readyStat == 4 && req.status == 200) {
+                    if (!(req.responseText.startsWith("Error"))) {
+                        document.getElementById("output").setAttribute("src", "downloads/" + req.responseText)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
