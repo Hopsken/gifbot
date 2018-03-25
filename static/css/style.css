@@ -5,17 +5,30 @@
 
 body {
     font-size: 16px;
+    color: #4b0f31;
     background-color: #F1E5E6;
 }
 
+a {
+    text-decoration: none;
+    color: #d3394c;
+}
+a:hover, a:focus {
+    text-decoration: underline;
+}
 header {
     text-align: center;
 }
 
 header h2 {
-    display: inline-block;
-    padding: 3rem 2rem;
+    display: block;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
     color: #4b0f31;
+}
+header h4 {
+    display: block;
+    padding-bottom: 2rem;
 }
 
 .content {
@@ -50,9 +63,10 @@ header h2 {
 #gif+label, .btn {
     display: inline-block;
     box-sizing: border-box;
+    border: none;
     width: 10rem;
     padding: 0.8rem 1.2rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -72,7 +86,7 @@ header h2 {
     outline: -webkit-focus-ring-color auto 5px;
 }
 
-#gif+label svg, .btn svg {
+#gif+label svg, .btn svg, footer svg {
     width: 1em;
     height: 1em;
     vertical-align: middle;
@@ -117,4 +131,15 @@ header h2 {
 .message {
     color: #d3394c;
     font-size: 1.2rem;
+}
+
+footer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer span {
+    line-height: 2rem;
 }
