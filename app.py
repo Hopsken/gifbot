@@ -12,8 +12,9 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/tmp/uploads/'
 app.config['DOWNLOAD_FOLDER'] = '/tmp/downloads/'
 
-os.mkdir(app.config['UPLOAD_FOLDER'], 0755)
-os.mkdir(app.config['UPLOAD_FOLDER'], 0755)
+if os.path.exists(app.config['UPLOAD_FOLDER']) == False:
+    os.mkdir(app.config['UPLOAD_FOLDER'])
+    os.mkdir(app.config['UPLOAD_FOLDER'])
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
