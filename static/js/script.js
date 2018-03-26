@@ -34,8 +34,10 @@ $(function () {
             success: function(data){
                 if (!data.startsWith("Error")) {
                     $output.attr("src", "downloads/"+data)
-                            .show()
-                            .on("load", function(){$loader.hide();});
+                            .on("load", function(){
+                                $loader.hide();
+                                $output.show();
+                            });
                     $("#submit").html("Success!");
                 } else {
                     $loader.hide();
