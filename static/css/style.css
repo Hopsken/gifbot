@@ -107,7 +107,7 @@ header h4 {
 }
 
 .bouncing-loader {
-    display: none;
+    display: flex;
     justify-content: center;
 }
 

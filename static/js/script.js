@@ -14,9 +14,13 @@
 //     };
 // }
 $(function () {
+    var $loader = $(".bouncing-loader");
+    var $output = $("#output");
+    $loader.hide();
     $("#submit").on("click", function(e){
-        $(".bouncing-loader").css("display", "flex");
+        $loader.show();
         $(this).attr("disabled", true).html("Loading...");
+        $output.attr("src", null).hide();
 
         var form = new FormData();
         var file = document.getElementById("gif").files;
@@ -28,18 +32,20 @@ $(function () {
             processData: false,
             contentType: false,
             success: function(data){
-                $(".bouncing-loader").css("display", "none");
                 if (!data.startsWith("Error")) {
-                    $("#output").attr("src", "downloads/"+data);
+                    $output.attr("src", "downloads/"+data)
+                            .show()
+                            .on("load", function(){$loader.hide();});
                     $("#submit").html("Success!");
                 } else {
-                    $("#output").html("Some error happened. Pleaset try again.");
-                    $("#submit").html("Error...").removeAtt("disabled");
+                    $loader.hide();
+                    $output.html("Some error happened. Pleaset try again.").show();
+                    $("#submit").html("Error...").removeAttr("disabled");
                 }
             },
             error: function (e) { 
-                $(".bouncing-loader").css("display", "none");
-                $("#output").html("Some error happened. Pleaset try again.");
+                $loader.hide();
+                $output.html("Some error happened. Pleaset try again.").show();
                 $("#submit").html("Error...").removeAtt("disabled");
              }
         });
@@ -68,10 +74,10 @@ $(function () {
             var reader = new FileReader();
             reader.readAsDataURL(this.files[0]);
             reader.onloadstart = function(){
-                $(".bouncing-loader").css("display", "flex");
+                $loader.show();
             };
             reader.onloadend = function () {
-                $(".bouncing-loader").css("display", "none");
+                $loader.hide();
                 $("#output").attr("src", this.result);
             };
         });
