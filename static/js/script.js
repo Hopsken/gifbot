@@ -4,14 +4,16 @@ $(function () {
     var $btn = $("#submit");
     $loader.hide();
     $("#submit").on("click", function(e){
-        $loader.show();
-        //避免重复点击
-        $btn.attr("disabled", true).html("Reversing...");
-        $output.attr("src", null).hide();
-
         var form = new FormData();
         var file = document.getElementById("gif").files;
+        if (!file[0]){
+            return false;
+        }
         form.append('gif', file[0], file[0].name);
+
+        $loader.show();
+        $btn.attr("disabled", true).html("Reversing...");
+        $output.attr("src", null).hide();
         $.ajax({
             url: "upload/",
             type: "post",
