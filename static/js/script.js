@@ -35,9 +35,9 @@ $(function () {
                 if (!data.startsWith("Error")) {
                     $("#submit").html("Loading...");
                     $output.attr("src", "downloads/"+data)
+                            .show()
                             .on("load", function(){
                                 $loader.hide();
-                                $output.show();
                                 $("#submit").html("Success!");
                             });
                 } else {
