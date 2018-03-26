@@ -37,8 +37,8 @@ $(function () {
                             .on("load", function(){
                                 $loader.hide();
                                 $output.show();
+                                $("#submit").html("Success!");
                             });
-                    $("#submit").html("Success!");
                 } else {
                     $loader.hide();
                     $output.html("Some error happened. Pleaset try again.").show();
