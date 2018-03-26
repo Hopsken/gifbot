@@ -42,6 +42,11 @@ $(function () {
                                 $loader.hide();
                                 $btn.html("Success!");
                             });
+                    var $downloadBtn = $("<a></a>");
+                    $downloadBtn.attr("href", "downloads/"+data)
+                                .attr("class", "btn")
+                                .html("Download");
+                    $output.after($downloadBtn);
                 } else {
                     $loader.hide();
                     $output.html("Some error happened. Pleaset try again.").show();
@@ -76,7 +81,7 @@ $(function () {
                 alert("Only support gif files. Please select gif files.");
                 return false;
             }
-            // submit btn恢复可用
+
             $btn.removeAttr("disabled"); 
 
             var reader = new FileReader();
