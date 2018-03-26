@@ -37,11 +37,10 @@ def upload_file():
         with Image.open(app.config['UPLOAD_FOLDER']+f_name) as im:
             if im.is_animated:
                 frames = [f.copy() for f in ImageSequence.Iterator(im)]
-                frames.reverse() # 内置列表倒序方法
-                # 将倒序后的所有帧图像保存下来
+                frames.reverse()
                 frames[0].save(os.path.join(app.config['DOWNLOAD_FOLDER'],f_name), save_all=True, append_images=frames[1:])
         return f_name
     return "Error: Not Allowed."
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

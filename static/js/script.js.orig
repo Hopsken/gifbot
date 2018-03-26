@@ -19,6 +19,7 @@ $(function () {
     var $btn = $("#submit");
     $loader.hide();
     $("#submit").on("click", function(e){
+        var $sub
         $loader.show();
         $btn.attr("disabled", true).html("Reversing...");
         $output.attr("src", null).hide();
@@ -38,9 +39,15 @@ $(function () {
                     $output.attr("src", "downloads/"+data)
                             .show()
                             .on("load", function(){
+<<<<<<< HEAD
                                 $loader.hide();
                                 $btn.html("Success!");
                                 $btn.removeAttr("disabled");
+=======
+                                
+                                $output.show();
+                                $("#submit").html("Success!");
+>>>>>>> 389ae058ec62c3a9e744a2d18157a21d8431c90d
                             });
                 } else {
                     $loader.hide();
