@@ -35,18 +35,19 @@ $(function () {
             contentType: false,
             success: function(data){
                 if (!data.startsWith("Error")) {
+                    var $downloadBtn = $("<a></a>");
+                    $downloadBtn.attr("href", "downloads/"+data)
+                                .attr("class", "btn")
+                                .html("Download");
+
                     $btn.html("Loading...");
                     $output.attr("src", "downloads/"+data)
                             .show()
                             .on("load", function(){
                                 $loader.hide();
                                 $btn.html("Success!");
+                                $output.after($downloadBtn);
                             });
-                    var $downloadBtn = $("<a></a>");
-                    $downloadBtn.attr("href", "downloads/"+data)
-                                .attr("class", "btn")
-                                .html("Download");
-                    $output.after($downloadBtn);
                 } else {
                     $loader.hide();
                     $output.html("Some error happened. Pleaset try again.").show();
