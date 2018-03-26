@@ -20,6 +20,7 @@ $(function () {
     $loader.hide();
     $("#submit").on("click", function(e){
         $loader.show();
+        //避免重复点击
         $btn.attr("disabled", true).html("Reversing...");
         $output.attr("src", null).hide();
 
@@ -40,18 +41,17 @@ $(function () {
                             .on("load", function(){
                                 $loader.hide();
                                 $btn.html("Success!");
-                                $btn.removeAttr("disabled");
                             });
                 } else {
                     $loader.hide();
                     $output.html("Some error happened. Pleaset try again.").show();
-                    $btn.html("Error...").removeAttr("disabled");
+                    $btn.html("Error...");
                 }
             },
             error: function (e) { 
                 $loader.hide();
                 $output.html("Some error happened. Pleaset try again.").show();
-                $btn.html("Error...").removeAttr("disabled");
+                $btn.html("Error...");
              }
         });
     });
@@ -76,6 +76,9 @@ $(function () {
                 alert("Only support gif files. Please select gif files.");
                 return false;
             }
+            // submit btn恢复可用
+            $btn.removeAttr("disabled"); 
+
             var reader = new FileReader();
             reader.readAsDataURL(this.files[0]);
             reader.onloadstart = function(){
