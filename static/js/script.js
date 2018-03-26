@@ -1,18 +1,3 @@
-// function submit(evt) {
-//     var form = new FormData();
-//     var files = document.getElementById("gif").files;
-//     form.append('gif', files[0], files[0].name);
-//     var req = new XMLHttpRequest();
-//     req.open("post", "upload/", true);
-//     req.send(form);
-//     req.onreadystatechange = function () {
-//         if (req.readyState == 4 && req.status == 200) {
-//             if (!(req.responseText.startsWith("Error"))) {
-//                 document.getElementById("output").setAttribute("src", "downloads/" + req.responseText)
-//             }
-//         }
-//     };
-// }
 $(function () {
     var $loader = $(".bouncing-loader");
     var $output = $("#output");
