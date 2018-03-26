@@ -16,10 +16,12 @@
 $(function () {
     var $loader = $(".bouncing-loader");
     var $output = $("#output");
+    var $btn = $("#submit");
     $loader.hide();
     $("#submit").on("click", function(e){
+        var $sub
         $loader.show();
-        $(this).attr("disabled", true).html("Reversing...");
+        $btn.attr("disabled", true).html("Reversing...");
         $output.attr("src", null).hide();
 
         var form = new FormData();
@@ -33,23 +35,24 @@ $(function () {
             contentType: false,
             success: function(data){
                 if (!data.startsWith("Error")) {
-                    $("#submit").html("Loading...");
+                    $btn.html("Loading...");
                     $output.attr("src", "downloads/"+data)
                             .show()
                             .on("load", function(){
                                 $loader.hide();
-                                $("#submit").html("Success!");
+                                $btn.html("Success!");
+                                $btn.removeAttr("disabled");
                             });
                 } else {
                     $loader.hide();
                     $output.html("Some error happened. Pleaset try again.").show();
-                    $("#submit").html("Error...").removeAttr("disabled");
+                    $btn.html("Error...").removeAttr("disabled");
                 }
             },
             error: function (e) { 
                 $loader.hide();
                 $output.html("Some error happened. Pleaset try again.").show();
-                $("#submit").html("Error...").removeAtt("disabled");
+                $btn.html("Error...").removeAttr("disabled");
              }
         });
     });
