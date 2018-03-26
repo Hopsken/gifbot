@@ -19,7 +19,7 @@ $(function () {
     $loader.hide();
     $("#submit").on("click", function(e){
         $loader.show();
-        $(this).attr("disabled", true).html("Loading...");
+        $(this).attr("disabled", true).html("Reversing...");
         $output.attr("src", null).hide();
 
         var form = new FormData();
@@ -33,6 +33,7 @@ $(function () {
             contentType: false,
             success: function(data){
                 if (!data.startsWith("Error")) {
+                    $("#submit").html("Loading...");
                     $output.attr("src", "downloads/"+data)
                             .on("load", function(){
                                 $loader.hide();
