@@ -43,10 +43,10 @@ $(function () {
                     $btn.html("Loading...");
                     $output.attr("src", "downloads/"+data)
                             .show()
+                            .after($downloadBtn)
                             .on("load", function(){
                                 $loader.hide();
                                 $btn.html("Success!");
-                                $output.after($downloadBtn);
                             });
                 } else {
                     $loader.hide();
