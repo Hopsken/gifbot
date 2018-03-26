@@ -28,9 +28,9 @@ $(function () {
                                 .html("Download");
 
                     $btn.html("Loading...");
+                    $output.parent().append($downloadBtn);
                     $output.attr("src", "downloads/"+data)
                             .show()
-                            .after($downloadBtn)
                             .on("load", function(){
                                 $loader.hide();
                                 $btn.html("Success!");
