@@ -143,3 +143,7 @@ footer {
 footer span {
     line-height: 2rem;
 }
+
+#busuanzi_container_site_pv {
+    font-size: 0.5rem;
+}
